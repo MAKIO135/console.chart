@@ -34,18 +34,20 @@ console.chart = function( data, _params ){
     );
     chart.forEach( ( c, i ) => chart[ i ] = ' ' + chart[ i ] + ' ' );
 
+    let empty = new Array( chart[ 0 ].length ).fill( ' ' ).join('');
+    chart.splice(0, 0, empty);
+
     if( params.title ){
         params.title = ' ' + params.title;
         while ( params.title.length < chart[ 0 ].length ) {
             params.title += ' ';
         }
 
-        let empty = new Array( chart[ 0 ].length ).fill( ' ' ).join('');
-        chart.splice(0, 0, empty);
         chart.splice( 0, 0, params.title );
         chart.splice( 0, 0, empty );
-        chart.push( empty );
     }
+    
+    chart.push( empty );
 
     console.log( '%c' + chart.join( '\n' ), 'color: ' + params.color + ';' + ( params.background ? 'background: ' + params.background + ';' : '' ) );
 };
