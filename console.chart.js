@@ -42,5 +42,5 @@ console.chart = function( data, _params ){
         chart.push( empty );
     }
 
-    console.log( '%c' + chart.join( '\n' ), 'color: ' + params.color + ';' + params.background ? 'background: ' + params.background : '' );
+    console.log( '%c' + chart.join( '\n' ), 'color: ' + params.color + ';' + params.background ? 'background: ' + params.background + ';' : '' );
 };
