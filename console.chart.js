@@ -35,7 +35,12 @@ console.chart = function( data, _params ){
     chart.forEach( ( c, i ) => chart[ i ] = ' ' + chart[ i ] + ' ' );
 
     if( params.title ){
-        let empty = new Array( chart[0].length ).fill( ' ' ).join('');
+        params.title = ' ' + params.title;
+        while ( params.title.length < chart[ 0 ].length ) {
+            params.title += ' ';
+        }
+
+        let empty = new Array( chart[ 0 ].length ).fill( ' ' ).join('');
         chart.splice(0, 0, empty);
         chart.splice( 0, 0, params.title );
         chart.splice( 0, 0, empty );
