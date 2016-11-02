@@ -46,7 +46,7 @@ console.chart = function( data, _params ){
         chart.splice( 0, 0, params.title );
         chart.splice( 0, 0, empty );
     }
-    
+
     chart.push( empty );
 
     console.log( '%c' + chart.join( '\n' ), 'color: ' + params.color + ';' + ( params.background ? 'background: ' + params.background + ';' : '' ) );
