@@ -2,7 +2,9 @@
 ___
 Display data as chart bars in your browser console  
 
-<!-- ![](console.chart.png) -->
+![](console.chart.png)
+
+```<script src="https://cdn.rawgit.com/MAKIO135/console.chart/master/console.chart.js"></script>```
 
 Usage:
 
