@@ -23,7 +23,7 @@ console.chart = function( data, _params ){
         }
     }
 
-    let len = ( '' + params.max ).length;
+    let len = data.map( d => '' + d ).sort( ( a, b ) => a.length < b.length )[0].length;
     let chart = new Array( params.height).fill( 0 ).map( ( d, i ) =>
         i == 0 ? intFormat( params.max, len ) + '| ' :
         i < params.height - 1 ? intFormat( '', len ) + '| ' :
