@@ -7,17 +7,21 @@ console.chart = function( data, _params ){
         }
         return( a.reverse().join( '' ) );
     }
-
+    // defaults
     let params = {
-        title: _params.title || null,
-        height: _params.height || 10,
-        color: _params.color || '#000',
-        background: _params.background || null,
-        min: _params.min + 1 || Math.min( ...data ) + 1,
-        max: _params.max || Math.max( ...data )
+        title: null,
+        height: 10,
+        color: '#000',
+        background: null,
+        min: Math.min( ...data ),
+        max: Math.max( ...data )
     };
-
-    params.min --;
+    // extend defaults with passed options
+    for (var key in params) {
+        if (_params && _params.hasOwnProperty(key)) {
+            params[key] = _params[key];
+        }
+    }
 
     let len = ( '' + params.max ).length;
     let chart = new Array( params.height).fill( 0 ).map( ( d, i ) =>
