@@ -4,7 +4,7 @@ Display data as chart bars in your browser console
 
 ![](console.chart.png)
 
-```<script src="https://cdn.rawgit.com/MAKIO135/console.chart/master/console.chart.js"></script>```
+```<script src="https://cdn.rawgit.com/MAKIO135/console.chart/master/console.chart.min.js"></script>```
 
 Usage:
 
