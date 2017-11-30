@@ -1,12 +1,13 @@
-console.chart = function( data, _params ){
-    function intFormat( int, n ){
+console.chart = ( data, _params ) => {
+    function intFormat( int, n ) {
         let a = ( '' + int ).split( '' ).reverse();
         let len = a.length;
-        while( a.length < n ){
+        while( a.length < n ) {
             a.push( ' ' );
         }
         return( a.reverse().join( '' ) );
     }
+
     // defaults
     let params = {
         title: null,
@@ -16,14 +17,15 @@ console.chart = function( data, _params ){
         min: Math.min( ...data ),
         max: Math.max( ...data )
     };
+    
     // extend defaults with passed options
-    for (var key in params) {
-        if (_params && _params.hasOwnProperty(key)) {
-            params[key] = _params[key];
+    for( let key in params ) {
+        if( _params && _params.hasOwnProperty( key ) ) {
+            params[ key ] = _params[ key ];
         }
     }
 
-    let len = data.map( d => '' + d ).sort( ( a, b ) => a.length < b.length )[0].length;
+    let len = data.map( d => '' + d ).sort( ( a, b ) => a.length < b.length )[ 0 ].length;
     let chart = new Array( params.height).fill( 0 ).map( ( d, i ) =>
         i == 0 ? intFormat( params.max, len ) + '| ' :
         i < params.height - 1 ? intFormat( '', len ) + '| ' :
@@ -38,12 +40,12 @@ console.chart = function( data, _params ){
     );
     chart.forEach( ( c, i ) => chart[ i ] = ' ' + chart[ i ] + ' ' );
 
-    let empty = new Array( chart[ 0 ].length ).fill( ' ' ).join('');
-    chart.splice(0, 0, empty);
+    let empty = new Array( chart[ 0 ].length ).fill( ' ' ).join( '' );
+    chart.splice( 0, 0, empty );
 
-    if( params.title ){
+    if( params.title ) {
         params.title = ' ' + params.title;
-        while ( params.title.length < chart[ 0 ].length ) {
+        while( params.title.length < chart[ 0 ].length ) {
             params.title += ' ';
         }
 
