@@ -1,5 +1,5 @@
 # console.chart
-___
+
 Display data as chart bars in your browser console  
 
 ![](console.chart.png)
